@@ -11,8 +11,18 @@
     "ghcr.io/devcontainers/features/git:1": {},
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
-  "postCreateCommand": "terraform --version && aws --version && git config --global user.name 'scmgustafson' && git config --global user.email 'scmgustafson@gmail.com'"
-
+  "postCreateCommand": "terraform --version && aws --version && git config --global user.name 'scmgustafson' && git config --global user.email 'scmgustafson@gmail.com'",
+  "customizations": {
+        "vscode": {
+            // Add the IDs of extensions you want installed when the container is created.
+            "extensions": [
+                "hashicorp.terraform"
+            ]
+        }
+  },
+  "mounts": [
+    "source=${env:HOME}/.aws/terraform_user,target=/home/vscode/.aws,type=bind"
+  ]
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},
 
