@@ -1,7 +1,10 @@
 # Network Module
 
-The network layer for our example project that includes all necessary network infrastructure including
+The network layer for our example project that includes all necessary network infrastructure for a given environment.
 
-- VPC
-- Subnets
-- Gateways
+This module will create:
+
+- A VPC
+- a public and private subnet
+- an internet gateway and a nat gateway
+- all necessary route tables and associations
