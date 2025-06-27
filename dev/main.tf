@@ -30,8 +30,24 @@ module "network" {
   vpc_cidr = "10.0.0.0/16"
   vpc_name = "${var.project_name}-${var.env_name}"
   
-
   # Subnet configurations
   public_subnet_cidr = "10.0.1.0/24"
   private_subnet_cidr = "10.0.2.0/24"
+}
+
+module "web" {
+    source = "../modules/web"
+
+    base_tags = {
+        env = var.env_name
+    }
+
+    # Web Server configuration
+    ec2_name = "${module.network.vpc_id}-web-server"
+    # Hardcoded latest Amazon Linux 2 AMI
+    ec2_ami = "ami-061ad72bc140532fd"
+    # Configure network information with output from `network` module
+    ec2_subnet_id = module.network.public_subnet_id
+    ec2_vpc_id = module.network.vpc_id
+    ec2_vpc_cidr_block = module.network.vpc_cidr_block
 }
