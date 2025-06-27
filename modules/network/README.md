@@ -8,3 +8,5 @@ This module will create:
 - a public and private subnet
 - an internet gateway and a nat gateway
 - all necessary route tables and associations
+
+See `network-module-diagram.png` for further details.
