@@ -14,7 +14,7 @@ resource "aws_db_subnet_group" "private" {
 resource "aws_db_instance" "main" {
   allocated_storage    = var.rds_allocated_storage
   storage_type = var.rds_storage_type
-  db_name              = "${var.rds_instance_name}db"
+  db_name              = var.rds_database_name
   engine               = var.rds_engine_type
   engine_version       = var.rds_engine_version
   instance_class       = var.rds_instance_type
@@ -23,4 +23,10 @@ resource "aws_db_instance" "main" {
   parameter_group_name = var.rds_parameter_group_name
   skip_final_snapshot  = true
   db_subnet_group_name = aws_db_subnet_group.private.name
+
+  tags = merge(var.base_tags, 
+    {
+      Name = "${var.rds_instance_name}"
+    }
+  )
 }

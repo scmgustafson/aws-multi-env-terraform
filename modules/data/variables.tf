@@ -32,6 +32,11 @@ variable rds_instance_name {
     description = "The name of the RDS instance."
 }
 
+variable rds_database_name {
+    type = string
+    description = "The name of the logical DB created on the RDS instance."
+}
+
 variable rds_engine_type {
     type = string
     description = "The underlying DB engine type of the RDS instance. Ex: mysql"
