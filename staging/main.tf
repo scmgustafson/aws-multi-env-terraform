@@ -2,7 +2,7 @@ terraform {
     backend "s3" {
     #   Also possibly different state per env based on https://docs.aws.amazon.com/prescriptive-guidance/latest/terraform-aws-provider-best-practices/backend.html
     bucket       = "terraform-demo-project-terraform-state"
-    key          = "aws-multi-env-terraform/dev/terraform.tfstate"
+    key          = "aws-multi-env-terraform/staging/terraform.tfstate"
     region       = "us-west-1"
     use_lockfile = true
   }

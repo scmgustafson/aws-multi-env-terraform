@@ -39,3 +39,14 @@ variable domain_hosted_zone_id {
     type = string
     description = "The hosted zone ID of a domain you own that the EC2 instance web page will be accessible under"
 }
+
+variable root_domain {
+    type = string
+    description = "The root domain of the hosted zone ID you'll use."
+}
+
+variable subdomain {
+    type = string
+    description = "The subdomain to be added to the root domain that the web server will be accessible at"
+    default = "www"
+}

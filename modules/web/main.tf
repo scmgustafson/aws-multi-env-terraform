@@ -74,7 +74,7 @@ resource "aws_instance" "web-server" {
 # Route53 record
 resource "aws_route53_record" "www" {
   zone_id = var.domain_hosted_zone_id
-  name    = "www.sethgustafson.com"
+  name    = "${var.subdomain}.${var.root_domain}"
   type    = "A"
   ttl     = 300
   records = [aws_instance.web-server.public_ip]
