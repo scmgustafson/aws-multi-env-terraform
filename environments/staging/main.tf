@@ -19,7 +19,7 @@ terraform {
 
 # Network layer for the multi-env example
 module "network" {
-  source = "./../modules/network"
+  source = "../../modules/network"
 
   # Tags to be applied to all resources
   base_tags = {
@@ -37,7 +37,7 @@ module "network" {
 }
 
 module "data" {
-    source = "../modules/data"
+    source = "../../modules/data"
 
     base_tags = {
         env = var.env_name
@@ -55,7 +55,7 @@ module "data" {
 }
 
 module "web" {
-    source = "../modules/web"
+    source = "../../modules/web"
 
     base_tags = {
         env = var.env_name
