@@ -7,4 +7,4 @@ This module will create:
 - An RDS instance (free-tier by default, mysql)
 - A subnet group utilizing the private subnet from the `network` module
 
-See `network-module-diagram.png` for further details.
+See `data-module-diagram.png` for further details.
