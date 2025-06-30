@@ -24,3 +24,8 @@ variable private_subnet_cidr {
     type = string
     description = "The value of the cidr_block argument for the Subnet. Ex: 10.0.1.0/24"
 }
+
+variable private2_subnet_cidr {
+    type = string
+    description = "The value of the cidr_block argument for the Subnet. Ex: 10.0.1.0/24"
+}

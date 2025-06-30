@@ -33,6 +33,7 @@ module "network" {
   # Subnet configurations
   public_subnet_cidr = "10.0.1.0/24"
   private_subnet_cidr = "10.0.2.0/24"
+  private2_subnet_cidr = "10.0.3.0/24"
 }
 
 module "web" {
@@ -65,10 +66,10 @@ module "data" {
 
     # Subnet Group (utilizes the previously created private subnet from the network module)
     rds_subnet_group_name = "${module.network.vpc_id}-private-subnet-group"
-    rds_subnet_id = [module.network.private_subnet_id]
+    rds_subnet_id = [module.network.private_subnet_id, module.network.private2_subnet_id]
 
     # RDS Instance (defaults to free-tier MySQL)
-    rds_instance_name = "${module.network.vpc_id}"
+    rds_instance_name = "example"
     rds_username = var.database_username
     rds_password = var.database_password
 }
