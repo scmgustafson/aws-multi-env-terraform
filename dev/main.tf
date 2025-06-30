@@ -50,4 +50,8 @@ module "web" {
     ec2_subnet_id = module.network.public_subnet_id
     ec2_vpc_id = module.network.vpc_id
     ec2_vpc_cidr_block = module.network.vpc_cidr_block
+
+    # DNS Record
+    # Using an existing domain I already own
+    domain_hosted_zone_id = "Z04600212LU1F0XIW9IB8"
 }

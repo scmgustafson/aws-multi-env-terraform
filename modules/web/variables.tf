@@ -27,10 +27,15 @@ variable ec2_name {
 
 variable ec2_vpc_id {
     type = string
-    description = "The VPC the EC2 instance is launched in"
+    description = "The VPC ID of the VPC the EC2 instance is launched in"
 }
 
 variable ec2_vpc_cidr_block {
     type = string
     description = "The VPC cidr the EC2 instance is launched in"
+}
+
+variable domain_hosted_zone_id {
+    type = string
+    description = "The hosted zone ID of a domain you own that the EC2 instance web page will be accessible under"
 }
