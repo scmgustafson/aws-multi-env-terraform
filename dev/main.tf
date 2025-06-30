@@ -55,3 +55,20 @@ module "web" {
     # Using an existing domain I already own
     domain_hosted_zone_id = "Z04600212LU1F0XIW9IB8"
 }
+
+module "data" {
+    source = "../modules/data"
+
+    base_tags = {
+        env = var.env_name
+    }
+
+    # Subnet Group (utilizes the previously created private subnet from the network module)
+    rds_subnet_group_name = "${module.network.vpc_id}-private-subnet-group"
+    rds_subnet_id = [module.network.private_subnet_id]
+
+    # RDS Instance (defaults to free-tier MySQL)
+    rds_instance_name = "${module.network.vpc_id}"
+    rds_username = var.database_username
+    rds_password = var.database_password
+}
