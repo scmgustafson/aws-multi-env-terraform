@@ -4,22 +4,6 @@ This repository contains a modular, production-style infrastructure-as-code (IaC
 
 ---
 
-## 📦 Project Structure
-
-aws-multi-env-terraform/
-├── README.md # This file
-├── environments/ # Per-environment configs (dev, staging, prod)
-│ ├── dev/
-│ ├── staging/
-│ └── prod/
-├── modules/ # Reusable modules (network, web, db, etc.)
-│ ├── network/
-│ ├── web/
-│ └── db/
-└── .devcontainer/ # VS Code remote container setup
-
----
-
 ## ☁️ Backend Setup
 
 Before using any environment, you must provision the S3 bucket and DynamoDB table that Terraform will use for remote state locking and storage.
@@ -64,8 +48,6 @@ terraform destroy
 ---
 
 ## 🧠 Notes
-
-- Secrets (e.g., DB credentials) should be passed via .tfvars (never hardcoded).
 - You can customize environments using separate .tfvars files.
 - This setup is safe to use with VS Code Dev Containers.
 
